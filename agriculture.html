@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>AgriNova | Organic + Tech 3D | Faster Crop Growth</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefef7;
+      color: #1e2a2e;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* navigation */
+    .navbar {
+      background: rgba(255, 255, 245, 0.98);
+      backdrop-filter: blur(2px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e2e8d5;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 18px 24px;
+      max-width: 1360px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #2d6a4f, #40916c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .logo span {
+      font-weight: 400;
+      color: #1b4d2e;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #2d3e2b;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      color: #2b7a4b;
+      border-bottom: 2px solid #2b7a4b;
+      padding-bottom: 4px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #2b7a4b;
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #2b7a4b;
+      color: #2b7a4b;
+      box-shadow: none;
+    }
+    .btn-outline:hover {
+      background: #2b7a4b;
+      color: white;
+    }
+    .btn:hover {
+      background-color: #1e5a3c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(105deg, rgba(30, 45, 30, 0.85) 0%, rgba(25, 65, 40, 0.7) 100%), url('https://images.unsplash.com/photo-1523348837708-15d4a6b6f7b0?q=80&w=2070&auto=format');
+      background-size: cover;
+      background-position: center 35%;
+      padding: 100px 0 120px;
+      color: white;
+    }
+    .hero-content {
+      max-width: 650px;
+    }
+    .hero h1 {
+      font-size: 3.4rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 16px;
+      color: #1e3a2f;
+    }
+    .section-sub {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 48px auto;
+      color: #4a5b4e;
+      font-size: 1.1rem;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 32px;
+      margin-top: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px 24px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s;
+      text-align: center;
+      border: 1px solid #e9f0e6;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
+      border-color: #cfe3cf;
+    }
+    .card i {
+      font-size: 2.8rem;
+      color: #2b7a4b;
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .card p {
+      color: #4d5a4b;
+    }
+
+    .split-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .split-text {
+      flex: 1.2;
+    }
+    .split-image {
+      flex: 1;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+    }
+    .split-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .tech-list {
+      list-style: none;
+      margin-top: 24px;
+    }
+    .tech-list li {
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+    }
+    .tech-list i {
+      color: #2b7a4b;
+      font-size: 1.4rem;
+      width: 28px;
+    }
+
+    .stats-row {
+      background: #eef3e9;
+      border-radius: 48px;
+      padding: 48px 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      text-align: center;
+      gap: 32px;
+      margin: 32px 0 0;
+    }
+    .stat-item h3 {
+      font-size: 2.7rem;
+      font-weight: 800;
+      color: #1f543b;
+    }
+    .stat-item p {
+      font-weight: 500;
+    }
+
+    /* 3D Section specific */
+    .three-container {
+      background: radial-gradient(circle at 30% 10%, #e3f2e6, #cfe2cf);
+      border-radius: 48px;
+      overflow: hidden;
+      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.2);
+      margin-top: 20px;
+    }
+    #canvas3d {
+      width: 100%;
+      height: 500px;
+      display: block;
+      border-radius: 48px;
+    }
+    .three-caption {
+      text-align: center;
+      padding: 20px 24px 28px;
+      background: rgba(255,255,245,0.85);
+      backdrop-filter: blur(4px);
+      font-weight: 500;
+      color: #1e462e;
+    }
+
+    .contact-form {
+      background: white;
+      border-radius: 32px;
+      padding: 40px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid #d4dfce;
+      border-radius: 28px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #2b7a4b;
+      box-shadow: 0 0 0 3px rgba(43,122,75,0.2);
+    }
+    .footer {
+      background: #1e2f24;
+      color: #cddfcf;
+      padding: 48px 0 32px;
+      text-align: center;
+    }
+    .footer a {
+      color: #b8e0be;
+      text-decoration: none;
+    }
+    .social-icons {
+      margin: 24px 0 16px;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+    }
+    .social-icons a {
+      font-size: 1.7rem;
+      color: #cfe6cf;
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 14px;
+      }
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      .section-title {
+        font-size: 1.9rem;
+      }
+      .split-section {
+        flex-direction: column;
+      }
+      .hero {
+        padding: 70px 0;
+      }
+      #canvas3d {
+        height: 380px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">Agri<span>Nova</span></div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#tech">Tech for Growth</a></li>
+        <li><a href="#organic">Organic</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <h1>Grow faster, naturally.<br>Organic + AI power.</h1>
+        <p>Breakthrough agriculture where 100% organic methods meet intelligent technology. Achieve up to <strong>2.5x faster crop cycles</strong> without synthetic chemicals.</p>
+        <div class="hero-buttons">
+          <a href="#solutions" class="btn">Explore technology</a>
+          <a href="#contact" class="btn btn-outline">Get organic plan</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="solutions">
+      <div class="container">
+        <h2 class="section-title">Bio-Tech Ecosystem</h2>
+        <p class="section-sub">Merge ancestral organic wisdom with real‑time agri‑tech for faster, resilient harvests.</p>
+        <div class="cards-grid">
+          <div class="card">
+            <i class="fas fa-microchip"></i>
+            <h3>AI Growth Predictor</h3>
+            <p>Machine learning models analyze microclimate, soil biology and growth stages — recommends organic biostimulants to cut maturation time by 18–30%.</p>
+          </div>
+          <div class="card">
+            <i class="fas fa-seedling"></i>
+            <h3>Organic Accelerators</h3>
+            <p>Seaweed extracts, humic acids & beneficial microbes — certified organic inputs that naturally boost root development and photosynthetic efficiency.</p>
+          </div>
+          <div class="card">
+            <i class="fas fa-tint"></i>
+            <h3>Smart Drip IoT</h3>
+            <p>Sensor-guided precision irrigation reduces water stress and delivers nutrients exactly when plants need it, accelerating vegetative growth by up to 40%.</p>
+          </div>
+          <div class="card">
+            <i class="fas fa-sun-plant-wilt"></i>
+            <h3>Adaptive Greenhouses</h3>
+            <p>Automated climate & LED light recipes that mimic ideal spectra — speeding up photosynthesis cycles while maintaining organic integrity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech" style="background: #f8faf4;">
+      <div class="container">
+        <h2 class="section-title">⚡ Tech-driven speed without compromise</h2>
+        <p class="section-sub">Breakthrough innovations that respect nature — but supercharge every growth phase</p>
+        <div class="cards-grid">
+          <div class="card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Real‑time Sap Flow Sensors</h3>
+            <p>Monitor nutrient uptake & plant stress. AI alerts for early intervention, reducing recovery time and boosting daily biomass accumulation.</p>
+          </div>
+          <div class="card">
+            <i class="fas fa-droplet"></i>
+            <h3>Electro‑culture priming</h3>
+            <p>Low‑voltage electrical stimulation of root zones — proven to enhance germination speed and nutrient absorption, fully organic compatible.</p>
+          </div>
+          <div class="card">
+            <i class="fas fa-rocket"></i>
+            <h3>Bio‑accelerator compost tea</h3>
+            <p>Aerated compost tea reactors with IoT control: multiply beneficial microbes 1000x, delivering rapid soil regeneration and faster plant establishment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="split-section">
+        <div class="split-text">
+          <h2 class="section-title" style="text-align: left;">🌿 Organic farming + smart sensors = faster cycles</h2>
+          <p style="font-size:1.1rem; margin-bottom: 20px;">We don't choose between organic principles and modern speed. Our platform merges ecological farming with precision agtech — resulting in healthier soil, resilient crops, and accelerated harvest timelines.</p>
+          <ul class="tech-list">
+            <li><i class="fas fa-check-circle"></i> <strong>Bio-stimulant recipes</strong> tailored by AI to each crop variety.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Automatic micro-dosing</strong> of organic nutrients via drone & ground sensors.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Predictive pest alerts</strong> using computer vision — use only organic repellents, no waste.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Carbon‑smart composting</strong> that heats and matures in 12 days (vs 90 days) for fast organic fertilizer.</li>
+          </ul>
+          <a href="#contact" class="btn" style="margin-top: 24px;">Request demo →</a>
+        </div>
+        <div class="split-image">
+          <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?q=80&w=2073&auto=format" alt="Drone monitoring organic field" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section id="organic" style="background: #eef2ea;">
+      <div class="container">
+        <h2 class="section-title">Pure organic principles, amplified by technology</h2>
+        <div class="cards-grid">
+          <div class="card">
+            <i class="fas fa-bug"></i>
+            <h3>Biocontrol + AI scouting</h3>
+            <p>Computer vision identifies pest hotspots early, releases beneficial insects (ladybugs, lacewings) only where needed — organic & precise.</p>
+          </div>
+          <div class="card">
+            <i class="fas fa-leaf"></i>
+            <h3>Smart crop rotation</h3>
+            <p>Algorithm-driven rotation schedules that optimize soil nitrogen and break pathogen cycles, increasing yield and growth vigor naturally.</p>
+          </div>
+          <div class="card">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h3>Vermitech accelerators</h3>
+            <p>Automated worm compost reactors with temp & moisture control produce high-quality castings in record time, boosting root zone biology.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-item">
+          <h3>+47%</h3>
+          <p>faster germination rate*</p>
+        </div>
+        <div class="stat-item">
+          <h3>32%</h3>
+          <p>shorter growth-to-harvest</p>
+        </div>
+        <div class="stat-item">
+          <h3>100%</h3>
+          <p>organic certified methods</p>
+        </div>
+        <div class="stat-item">
+          <h3>−55%</h3>
+          <p>water usage with smart sensors</p>
+        </div>
+      </div>
+      <p style="text-align: center; font-size: 0.85rem; margin-top: 16px; color: #4d5b4a;">*Field trials with tomato, leafy greens & peppers — integrating organic bio-stimulants + AI environmental control.</p>
+    </div>
+
+    <section style="padding-top: 20px;">
+      <div class="container">
+        <h2 class="section-title">🔬 The science of faster organic growth</h2>
+        <div class="split-section">
+          <div class="split-image">
+            <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?q=80&w=2070&auto=format" alt="High-tech organic greenhouse" loading="lazy">
+          </div>
+          <div class="split-text">
+            <h3 style="font-size: 1.8rem;">Metabolic tuning + bio-energetics</h3>
+            <p>Our holistic approach uses spectral LED manipulation and natural biostimulants to enhance the Calvin cycle and nutrient partitioning. Combined with soil microbiome activation, crops reach reproductive stages earlier without genetic modification.</p>
+            <ul class="tech-list" style="margin-top: 16px;">
+              <li><i class="fas fa-charging-station"></i> <strong>Pulsed light technology</strong> – 20% higher photosynthetic rate</li>
+              <li><i class="fas fa-tachometer-alt"></i> <strong>Organic osmoprotectants</strong> – reduce abiotic stress, maintain fast growth</li>
+              <li><i class="fas fa-microscope"></i> <strong>Real‑time nitrate sensors</strong> – organic nitrogen efficiency</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D ELEMENT SECTION: Organic Sprout + Tech Nodes (Interactive) -->
+    <div class="container" style="margin-bottom: 20px;">
+      <div class="three-container">
+        <canvas id="canvas3d"></canvas>
+        <div class="three-caption">
+          <i class="fas fa-cube" style="margin-right: 8px;"></i> 3D Growth Visualization — AI‑optimized organic sprout with orbiting tech nodes | <strong>Faster crop growth</strong> through biomimicry & smart agriculture
+        </div>
+      </div>
+    </div>
+
+    <section id="contact" style="background: #ffffff;">
+      <div class="container">
+        <h2 class="section-title">Accelerate your farm — organically & intelligently</h2>
+        <p class="section-sub">Request a free agronomy consultation to integrate our organic + tech stack for faster crop cycles.</p>
+        <div class="contact-form">
+          <form id="demoForm">
+            <div class="form-group">
+              <input type="text" id="name" placeholder="Full name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" placeholder="Email address" required>
+            </div>
+            <div class="form-group">
+              <textarea rows="4" placeholder="Tell us about your farm / crop goals..." id="message"></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Request faster growth plan →</button>
+          </form>
+          <p id="formFeedback" style="margin-top: 20px; text-align: center; font-weight: 500; color: #2b7a4b;"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="logo" style="background: none; color: #c7e6cf; font-size: 1.8rem;">Agri<span style="color:#b3dfbc;">Nova</span></div>
+      <p style="margin: 16px 0 8px;">Organic intelligence • faster harvests • planet-first technology</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+      <p style="font-size: 0.85rem;">© 2025 AgriNova — merging organic farming & AI for faster crop growth. All innovations 100% organic compatible.</p>
+    </div>
+  </footer>
+
+  <!-- Three.js library -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'https://unpkg.com/three@0.128.0/examples/jsm/controls/OrbitControls.js';
+
+    const canvas = document.getElementById('canvas3d');
+    const width = canvas.clientWidth;
+    const height = 500;
+    
+    // Setup scene
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xeef3e9);
+    scene.fog = new THREE.FogExp2(0xeef3e9, 0.008);
+    
+    // Camera
+    const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / height, 0.1, 1000);
+    camera.position.set(4, 3, 6);
+    camera.lookAt(0, 1, 0);
+    
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: true });
+    renderer.setSize(canvas.clientWidth, height);
+    renderer.shadowMap.enabled = true; // subtle shadows
+    renderer.setPixelRatio(window.devicePixelRatio);
+    
+    // Controls for interactivity (user can rotate/zoom)
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 1.2;
+    controls.enableZoom = true;
+    controls.enablePan = false;
+    controls.target.set(0, 1.2, 0);
+    
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0x404c38, 0.65);
+    scene.add(ambientLight);
+    const mainLight = new THREE.DirectionalLight(0xfff5e0, 1.2);
+    mainLight.position.set(3, 5, 2);
+    mainLight.castShadow = true;
+    mainLight.receiveShadow = false;
+    mainLight.shadow.mapSize.width = 1024;
+    scene.add(mainLight);
+    const fillLight = new THREE.PointLight(0x88aa77, 0.5);
+    fillLight.position.set(-1, 2, 3);
+    scene.add(fillLight);
+    const backLight = new THREE.PointLight(0x9bc48b, 0.4);
+    backLight.position.set(0, 2, -3);
+    scene.add(backLight);
+    const rimLight = new THREE.PointLight(0xcbbf91, 0.5);
+    rimLight.position.set(1, 1.5, -2);
+    scene.add(rimLight);
+    
+    // Ground subtle disc
+    const groundDisc = new THREE.Mesh(
+      new THREE.CircleGeometry(2.8, 24),
+      new THREE.MeshStandardMaterial({ color: 0xbcdaa7, roughness: 0.8, metalness: 0.1, transparent: true, opacity: 0.4 })
+    );
+    groundDisc.rotation.x = -Math.PI / 2;
+    groundDisc.position.y = -0.2;
+    groundDisc.receiveShadow = true;
+    scene.add(groundDisc);
+    
+    // ---- CENTRAL ORGANIC SPROUT (symbol of faster growth) ----
+    const sproutGroup = new THREE.Group();
+    
+    // Stem (twisted cylinder)
+    const stemGeo = new THREE.CylinderGeometry(0.22, 0.32, 1.3, 12);
+    const stemMat = new THREE.MeshStandardMaterial({ color: 0x5f8b4c, roughness: 0.3, emissive: 0x2c4a1e, emissiveIntensity: 0.12 });
+    const stem = new THREE.Mesh(stemGeo, stemMat);
+    stem.castShadow = true;
+    stem.position.y = 0.65;
+    sproutGroup.add(stem);
+    
+    // Leaves (organic curved using groups and rotated cones)
+    const leafMat = new THREE.MeshStandardMaterial({ color: 0x6ba33f, emissive: 0x3b6e1f, emissiveIntensity: 0.1, roughness: 0.4 });
+    const leaf1 = new THREE.Mesh(new THREE.ConeGeometry(0.45, 0.7, 8), leafMat);
+    leaf1.position.set(0.5, 1.05, 0.2);
+    leaf1.rotation.z = -0.5;
+    leaf1.rotation.x = 0.3;
+    leaf1.castShadow = true;
+    sproutGroup.add(leaf1);
+    
+    const leaf2 = new THREE.Mesh(new THREE.ConeGeometry(0.48, 0.75, 8), leafMat);
+    leaf2.position.set(-0.45, 1.1, -0.15);
+    leaf2.rotation.z = 0.6;
+    leaf2.rotation.x = -0.2;
+    leaf2.castShadow = true;
+    sproutGroup.add(leaf2);
+    
+    const leaf3 = new THREE.Mesh(new THREE.ConeGeometry(0.4, 0.65, 8), leafMat);
+    leaf3.position.set(0.2, 1.35, 0.45);
+    leaf3.rotation.z = -0.2;
+    leaf3.rotation.x = 0.6;
+    leaf3.castShadow = true;
+    sproutGroup.add(leaf3);
+    
+    // Central glowing bud (future flower/fruit)
+    const budMat = new THREE.MeshStandardMaterial({ color: 0xd6c74b, emissive: 0xf9b81b, emissiveIntensity: 0.35, roughness: 0.2 });
+    const bud = new THREE.Mesh(new THREE.SphereGeometry(0.28, 16, 16), budMat);
+    bud.position.y = 1.55;
+    bud.castShadow = true;
+    sproutGroup.add(bud);
+    
+    // Small particles around sprout (organic energy)
+    const particleCount = 180;
+    const particleGeo = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount; i++) {
+      const radius = 1.2 + Math.random() * 1.6;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(2 * Math.random() - 1);
+      positions[i*3] = radius * Math.sin(phi) * Math.cos(theta);
+      positions[i*3+1] = radius * Math.sin(phi) * Math.sin(theta) + 0.9;
+      positions[i*3+2] = radius * Math.cos(phi);
+    }
+    particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const particleMat = new THREE.PointsMaterial({ color: 0xb7e37c, size: 0.05, transparent: true, opacity: 0.6 });
+    const particles = new THREE.Points(particleGeo, particleMat);
+    sproutGroup.add(particles);
+    
+    scene.add(sproutGroup);
+    
+    // ---- TECH NODES: orbiting spheres representing AI & IoT (faster growth technology) ----
+    const techGroup = new THREE.Group();
+    const techNodes = [];
+    const colors = [0x44aa77, 0x88cc55, 0x3a9b5e, 0x2ecc71, 0x5dade2];
+    const orbits = [1.9, 2.3, 2.7];
+    for (let i = 0; i < 24; i++) {
+      const size = 0.12 + Math.random() * 0.07;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const nodeMat = new THREE.MeshStandardMaterial({ color: color, emissive: 0x33aa55, emissiveIntensity: 0.3, metalness: 0.6 });
+      const sphere = new THREE.Mesh(new THREE.SphereGeometry(size, 16, 16), nodeMat);
+      const orbitRadius = orbits[i % 3];
+      const angle = (i / 24) * Math.PI * 2;
+      const heightOffset = Math.sin(angle * 3) * 0.5 + 0.8;
+      sphere.userData = {
+        radius: orbitRadius,
+        angle: angle,
+        speed: 0.008 + Math.random() * 0.005,
+        yOffset: heightOffset,
+        ySpeed: 0.003
+      };
+      sphere.castShadow = true;
+      techGroup.add(sphere);
+      techNodes.push(sphere);
+    }
+    scene.add(techGroup);
+    
+    // Additional floating rings (tech acceleration rings)
+    const ringGeo = new THREE.TorusGeometry(1.75, 0.04, 64, 200);
+    const ringMat = new THREE.MeshStandardMaterial({ color: 0x6cae4d, emissive: 0x40916c, emissiveIntensity: 0.2 });
+    const ring = new THREE.Mesh(ringGeo, ringMat);
+    ring.rotation.x = Math.PI / 2;
+    ring.position.y = 0.65;
+    scene.add(ring);
+    
+    const ring2Geo = new THREE.TorusGeometry(2.2, 0.045, 64, 200);
+    const ring2Mat = new THREE.MeshStandardMaterial({ color: 0x88c9a0, emissive: 0x2d6a4f, emissiveIntensity: 0.15 });
+    const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
+    ring2.rotation.z = Math.PI / 3;
+    ring2.rotation.x = 0.8;
+    ring2.position.y = 1.1;
+    scene.add(ring2);
+    
+    // small floating particles around tech nodes (glitter)
+    const starCount = 400;
+    const starGeo = new THREE.BufferGeometry();
+    const starPos = [];
+    for (let i = 0; i < starCount; i++) {
+      starPos.push((Math.random() - 0.5) * 7);
+      starPos.push((Math.random() - 0.5) * 4 + 1);
+      starPos.push((Math.random() - 0.5) * 6);
+    }
+    starGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(starPos), 3));
+    const starMat = new THREE.PointsMaterial({ color: 0xccefa8, size: 0.03, transparent: true });
+    const stars = new THREE.Points(starGeo, starMat);
+    scene.add(stars);
+    
+    // Animation loop
+    let time = 0;
+    function animate() {
+      requestAnimationFrame(animate);
+      time += 0.016;
+      
+      // Animate tech nodes: orbiting + slight vertical floating
+      techNodes.forEach(node => {
+        const data = node.userData;
+        if (data) {
+          data.angle += data.speed;
+          const x = Math.cos(data.angle) * data.radius;
+          const z = Math.sin(data.angle) * data.radius;
+          const y = 0.8 + Math.sin(time * 1.5 + data.angle * 2) * 0.2 + data.yOffset * 0.3;
+          node.position.set(x, y, z);
+        }
+      });
+      
+      // Rotate rings smoothly
+      ring.rotation.z += 0.005;
+      ring2.rotation.y += 0.003;
+      ring2.rotation.x += 0.002;
+      
+      // Make particles rotate gently
+      particles.rotation.y += 0.003;
+      stars.rotation.y -= 0.0005;
+      
+      // Animate bud pulse
+      const scale = 1 + Math.sin(time * 8) * 0.03;
+      bud.scale.set(scale, scale, scale);
+      
+      // update controls if auto-rotate active
+      controls.update();
+      
+      renderer.render(scene, camera);
+    }
+    
+    animate();
+    
+    // Resize handler
+    window.addEventListener('resize', onWindowResize, false);
+    function onWindowResize() {
+      const newWidth = canvas.clientWidth;
+      const newHeight = 500;
+      camera.aspect = newWidth / newHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(newWidth, newHeight);
+    }
+    
+    // initial call to set proper dimensions
+    onWindowResize();
+  </script>
+
+  <script type="module">
+    // Contact form logic (simple)
+    const form = document.getElementById('demoForm');
+    const feedback = document.getElementById('formFeedback');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if(name === '' || email === '') {
+        feedback.innerText = '⚠️ Please fill name and email to get your organic growth plan.';
+        feedback.style.color = '#c13b2b';
+        setTimeout(() => { feedback.innerText = ''; }, 3000);
+        return;
+      }
+      feedback.innerText = `🌱 Thanks ${name}! Our ag-tech specialist will contact you within 24h with organic acceleration insights.`;
+      feedback.style.color = '#1e5a3c';
+      form.reset();
+      setTimeout(() => {
+        feedback.innerText = '';
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
